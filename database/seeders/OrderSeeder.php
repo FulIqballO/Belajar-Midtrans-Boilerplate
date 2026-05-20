@@ -18,7 +18,7 @@ class OrderSeeder extends Seeder
     public function run(): void
     {
         // Ambil user Abdullah
-        $user = User::where('email', 'abdullah@gmail.com')->first();
+        $user = User::where('email', 'fadillahiqbal@gmail.com')->first();
 
         // Jika user tidak ditemukan, hentikan seeder
         if (!$user) {

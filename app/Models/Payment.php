@@ -14,6 +14,7 @@ class Payment extends Model
         'order_id',
         'amount',
         'status',
+        'snap_token',
         'payment_date',
     ];
 

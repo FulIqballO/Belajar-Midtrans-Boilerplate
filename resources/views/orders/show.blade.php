@@ -47,16 +47,39 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Payment Button -->
+                <!-- Right Column: Payment Button -->\
+                @if($order->status != 'paid' && isset($snap_token))
                 <div class="flex flex-col items-center justify-center bg-gray-50 p-6 rounded-lg shadow-inner">
                     <p class="text-lg font-medium mb-4 text-gray-700">Siap untuk melakukan pembayaran?</p>
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-xl transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    <button id='pay-button' class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-xl transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                         Bayar Sekarang
                     </button>
                     <p class="text-sm text-gray-500 mt-4">Total yang harus dibayar: <span class="font-semibold text-gray-800">Rp{{ number_format($order->gross_amount, 0, ',', '.') }}</span></p>
                 </div>
+                @endif
             </div>
         </div>
     </div>
+    
+
+       <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
+    <script type="text/javascript">
+      document.getElementById('pay-button').onclick = function(){
+        // SnapToken acquired from previous step
+        snap.pay('{{ $snap_token }}', {
+          // Optional
+          onSuccess: function(result){
+            window.location.href = "{{ url('payment/success') }}";
+          },
+          onPending: function(result){
+            
+          },
+          onError: function(result){
+            
+          }
+        });
+      };
+    </script>
+
 </body>
 </html>
