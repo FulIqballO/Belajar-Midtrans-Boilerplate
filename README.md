@@ -6,7 +6,7 @@ Bagi teman-teman yang akan menggunakan repo ini, bisa diperhatikan beberapa hal 
 ## Spesifikasi
 Program yang digunakan di Project ini adalah:
 - Laravel Versi 12
-- PHP Versi 8
+- PHP Versi 8.3
 - MySQL
 - Composer
 
@@ -14,7 +14,7 @@ Program yang digunakan di Project ini adalah:
 Untuk menggunakan dari repo ini silakan lakukan beberapa langkah berikut ini.
 1. Clone project ini di direktori yang disuka
 ```
-git clone https://github.com/dirumahrafif/laravel-midtrans-boilerplate.git
+git clone https://github.com/FulIqballO/laravel-midtrans-boilerplate.git
 ```
 2. Masuk ke bagian dalam dari project 
 ```
@@ -44,4 +44,4 @@ php artisan db:seed --class=ProductSeeder
 php artisan db:seed --class=OrderSeeder
 ```
 9. Jalankan Laravel 
-10. Semangat
+
